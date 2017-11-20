@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Linq;
+using System.Text;
+using MyNamespace;
 
 namespace test
 {
@@ -6,20 +9,9 @@ namespace test
     {
         static void Main(string[] args)
         {
-            System.String.Concat(new string[] {"Hello", " ", "World",});
-            string myGreeting = "Hello world!";
-
-            int myNumber = System.Int32.Parse("55");
-            myNumber.ToString();
-
-            string.Concat(new string[] {"Hello", " ", "world"});
-            Console.WriteLine(myGreeting);
-            int product = MultiplyTwoNumbers(4, 7);
-            Console.WriteLine(product);
-        }
-
-        static int MultiplyTwoNumbers(int x, int y){
-            return x * y;
+            Console.WriteLine(Foo.foo());
+            MyClass myObject = new MyClass();
+            Console.WriteLine(myObject.foo());
         }
     }
 }
