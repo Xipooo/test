@@ -1,6 +1,5 @@
 ﻿using System;
-using test.Finances;
-using test.Math;
+using test.VirtualMethods;
 
 namespace test
 {
@@ -8,20 +7,22 @@ namespace test
     {
         static void Main(string[] args)
         {
-            EventSource es = new EventSource();
-            es.Timeout += EventSource_Timeout;
-            es.Timeout += EventSource_Timeout2;
-            es.StartTimeout(5000);
-            Console.WriteLine("Waiting for Timeout to complete...");
-            Console.ReadLine();
-        }
+            Mammal mammal = new Mammal();
+            mammal.Breath();
+            mammal.Eat();
+            mammal.Sleep();
+            Console.WriteLine("???\n");
 
-        private static void EventSource_Timeout(object sender, string e){
-            Console.WriteLine(e);
-        }
+            Mammal[] critters = {
+                new Lion(), new Zebra(), new Bat(), new Lion()
+            };
 
-        private static void EventSource_Timeout2(object sender, string e){
-            Console.WriteLine(e);
+            foreach (Mammal critter in critters){
+                critter.Breath();
+                critter.Eat();
+                critter.Sleep();
+                Console.WriteLine();
+            }
         }
     }
 }
