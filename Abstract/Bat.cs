@@ -1,15 +1,16 @@
 using System;
 
-namespace test.VirtualMethods
+namespace test.Abstract
 {
     public class Bat : Mammal
     {
-        public override void Eat() {
+        public override void Eat()
+        {
             Console.WriteLine("Bat.Eat");
         }
 
-        public override void Sleep(){
+        public override void Sleep() {
             Console.WriteLine("Bat.Sleep");
-        }
+        }   
     }
 }
