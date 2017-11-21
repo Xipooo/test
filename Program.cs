@@ -1,5 +1,6 @@
 ﻿using System;
-using System.IO;
+using test.Finances;
+using test.Math;
 
 namespace test
 {
@@ -7,9 +8,20 @@ namespace test
     {
         static void Main(string[] args)
         {
-            Division div = new Division(4.56, 7.897);
-            Console.WriteLine("Dividend: " + div.myDividend + " Divisor: " + div.myDivisor);
-            Console.WriteLine();
+            EventSource es = new EventSource();
+            es.Timeout += EventSource_Timeout;
+            es.Timeout += EventSource_Timeout2;
+            es.StartTimeout(5000);
+            Console.WriteLine("Waiting for Timeout to complete...");
+            Console.ReadLine();
+        }
+
+        private static void EventSource_Timeout(object sender, string e){
+            Console.WriteLine(e);
+        }
+
+        private static void EventSource_Timeout2(object sender, string e){
+            Console.WriteLine(e);
         }
     }
 }
