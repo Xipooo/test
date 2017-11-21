@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Linq;
-using System.Text;
-using MyNamespace;
+using System.IO;
 
 namespace test
 {
@@ -9,9 +7,9 @@ namespace test
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Foo.foo());
-            MyClass myObject = new MyClass();
-            Console.WriteLine(myObject.foo());
+            Division div = new Division(4.56, 7.897);
+            Console.WriteLine("Dividend: " + div.myDividend + " Divisor: " + div.myDivisor);
+            Console.WriteLine();
         }
     }
 }
