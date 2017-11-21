@@ -1,4 +1,6 @@
 ﻿using System;
+using test.Finances;
+using test.Math;
 
 namespace test
 {
@@ -6,20 +8,20 @@ namespace test
     {
         static void Main(string[] args)
         {
-            System.String.Concat(new string[] {"Hello", " ", "World",});
-            string myGreeting = "Hello world!";
-
-            int myNumber = System.Int32.Parse("55");
-            myNumber.ToString();
-
-            string.Concat(new string[] {"Hello", " ", "world"});
-            Console.WriteLine(myGreeting);
-            int product = MultiplyTwoNumbers(4, 7);
-            Console.WriteLine(product);
+            EventSource es = new EventSource();
+            es.Timeout += EventSource_Timeout;
+            es.Timeout += EventSource_Timeout2;
+            es.StartTimeout(5000);
+            Console.WriteLine("Waiting for Timeout to complete...");
+            Console.ReadLine();
         }
 
-        static int MultiplyTwoNumbers(int x, int y){
-            return x * y;
+        private static void EventSource_Timeout(object sender, string e){
+            Console.WriteLine(e);
+        }
+
+        private static void EventSource_Timeout2(object sender, string e){
+            Console.WriteLine(e);
         }
     }
 }
