@@ -1,5 +1,5 @@
 ﻿using System;
-using test.VirtualMethods;
+using test.Interfaces;
 
 namespace test
 {
@@ -7,21 +7,25 @@ namespace test
     {
         static void Main(string[] args)
         {
-            Mammal mammal = new Mammal();
-            mammal.Breath();
-            mammal.Eat();
-            mammal.Sleep();
-            Console.WriteLine("???\n");
-
-            Mammal[] critters = {
-                new Lion(), new Zebra(), new Bat(), new Lion()
+            IMammal[] critters = {
+                new Zebra(), new SnoopLion(), new Bat(), new SnoopLion(), new Human(), new MountainLion()
             };
 
-            foreach (Mammal critter in critters){
+            foreach(IMammal critter in critters){
                 critter.Breath();
                 critter.Eat();
                 critter.Sleep();
                 Console.WriteLine();
+                
+            }
+            ILion[] lions = {
+                new MountainLion()
+            };
+            foreach(ILion lion in lions){
+                lion.Roar();
+                lion.Breath();
+                lion.Eat();
+                lion.Sleep();
             }
         }
     }
