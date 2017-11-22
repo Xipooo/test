@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using test.Generics;
 
 namespace test
 {
@@ -8,33 +9,17 @@ namespace test
     {
         static void Main(string[] args)
         {
-            /*ArrayList stringsArrayList = new ArrayList();
-            stringsArrayList.Add("Is");
-            stringsArrayList.Add("the");
-            stringsArrayList.Add("number");
-            stringsArrayList.Add(13); // Compiles but gives runtime error!
-            stringsArrayList.Add("unlucky");
-            stringsArrayList.Add("?");
-            Console.WriteLine("Using ArrayList");
-            foreach (string word in stringsArrayList)
-            {
-                Console.Write(word + " ");
-            }
-            Console.WriteLine();*/
+            bool isEqual;
 
-            List<string> stringsGenericList = new List<string>();
-            stringsGenericList.Add("Is");
-            stringsGenericList.Add("the");
-            stringsGenericList.Add("number");
-            //stringsGenericList.Add(13); // Gives compile error!
-            stringsGenericList.Add("unlucky");
-            stringsGenericList.Add("?");
-            Console.WriteLine("Using List<string>");
-            foreach (string word in stringsGenericList)
-            {
-                Console.Write(word + " ");
-            }
-            Console.WriteLine();
+            isEqual = NonGenericCompareClass.Compare(3, 4);
+            Console.WriteLine(isEqual);
+            isEqual = NonGenericCompareClass.Compare("up", "up");
+            Console.WriteLine(isEqual);
+
+            isEqual = GenericCompareClass.Compare<int>(3, 4);
+            Console.WriteLine(isEqual);
+            isEqual = GenericCompareClass.Compare<string>("up", "up");
+            Console.WriteLine(isEqual);
         }
     }
 }
