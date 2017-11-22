@@ -1,5 +1,5 @@
 ﻿using System;
-using test.Delegates;
+using test.Overloading;
 
 namespace test
 {
@@ -7,7 +7,17 @@ namespace test
     {
         static void Main(string[] args)
         {
-            TestDelegate.DoStuff();
+            Rectangle rect = new Rectangle();
+            Console.WriteLine(rect.ToString());
+
+            rect = new Rectangle(10);
+            Console.WriteLine(rect.ToString());
+
+            rect = new Rectangle(20, 20);
+            Console.WriteLine(rect.ToString());
+
+            rect = new Rectangle(20, 30);
+            Console.WriteLine(rect.ToString());
         }
     }
 }
